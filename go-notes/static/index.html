@@ -1,62 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Notes – Go</title>
-<style>
-  :root { --bg: #0f1117; --surface: #1a1d27; --border: #2a2d3a; --text: #e2e4ea; --dim: #8b8fa3; --accent: #22c55e; --accent2: #16a34a; --danger: #ef4444; }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
-  .shell { max-width: 720px; margin: 0 auto; padding: 2rem 1rem; }
-  header { display: flex; align-items: baseline; gap: .75rem; margin-bottom: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
-  header h1 { font-size: 1.5rem; font-weight: 600; }
-  header .badge { font-size: .75rem; background: var(--accent); color: #000; padding: 2px 8px; border-radius: 9999px; font-weight: 600; }
-  .stats { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; font-size: .85rem; color: var(--dim); }
-  .stats span { color: var(--accent); font-weight: 600; }
-  .form { display: grid; grid-template-columns: 1fr 1fr auto; gap: .5rem; margin-bottom: 1.5rem; }
-  .form.row2 { grid-template-columns: 1fr; }
-  input, select, textarea { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: .5rem .75rem; border-radius: 6px; font: inherit; font-size: .9rem; }
-  input:focus, textarea:focus, select:focus { outline: none; border-color: var(--accent); }
-  textarea { resize: vertical; min-height: 3rem; }
-  button { cursor: pointer; border: none; border-radius: 6px; padding: .5rem 1rem; font: inherit; font-size: .9rem; font-weight: 500; }
-  .btn-add { background: var(--accent); color: #000; }
-  .btn-add:hover { background: var(--accent2); }
-  .btn-del { background: transparent; color: var(--danger); font-size: .8rem; padding: .25rem .5rem; border: 1px solid var(--danger); }
-  .btn-del:hover { background: var(--danger); color: #fff; }
-  .note { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin-bottom: .5rem; display: flex; justify-content: space-between; align-items: start; gap: 1rem; }
-  .note-body h3 { font-size: .95rem; margin-bottom: .25rem; }
-  .note-body p { font-size: .85rem; color: var(--dim); }
-  .note-meta { display: flex; align-items: center; gap: .5rem; flex-shrink: 0; }
-  .cat { font-size: .7rem; background: var(--border); padding: 2px 8px; border-radius: 9999px; }
-  #empty { text-align: center; color: var(--dim); padding: 3rem 0; }
-</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Notes – Go</title>
+    <style>
+        :root {
+            --bg: #0f1117;
+            --surface: #1a1d27;
+            --border: #2a2d3a;
+            --text: #e2e4ea;
+            --dim: #8b8fa3;
+            --accent: #22c55e;
+            --accent2: #16a34a;
+            --danger: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        .shell {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        header {
+            display: flex;
+            align-items: baseline;
+            gap: .75rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        header .badge {
+            font-size: .75rem;
+            background: var(--accent);
+            color: #000;
+            padding: 2px 8px;
+            border-radius: 9999px;
+            font-weight: 600;
+        }
+
+        .stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-size: .85rem;
+            color: var(--dim);
+        }
+
+        .stats span {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .form {
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            gap: .5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form.row2 {
+            grid-template-columns: 1fr;
+        }
+
+        input, select, textarea {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: .5rem .75rem;
+            border-radius: 6px;
+            font: inherit;
+            font-size: .9rem;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 3rem;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            border-radius: 6px;
+            padding: .5rem 1rem;
+            font: inherit;
+            font-size: .9rem;
+            font-weight: 500;
+        }
+
+        .btn-add {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .btn-add:hover {
+            background: var(--accent2);
+        }
+
+        .btn-del {
+            background: transparent;
+            color: var(--danger);
+            font-size: .8rem;
+            padding: .25rem .5rem;
+            border: 1px solid var(--danger);
+        }
+
+        .btn-del:hover {
+            background: var(--danger);
+            color: #fff;
+        }
+
+        .note {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: .5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .note-body h3 {
+            font-size: .95rem;
+            margin-bottom: .25rem;
+        }
+
+        .note-body p {
+            font-size: .85rem;
+            color: var(--dim);
+        }
+
+        .note-meta {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            flex-shrink: 0;
+        }
+
+        .cat {
+            font-size: .7rem;
+            background: var(--border);
+            padding: 2px 8px;
+            border-radius: 9999px;
+        }
+
+        #empty {
+            text-align: center;
+            color: var(--dim);
+            padding: 3rem 0;
+        }
+    </style>
 </head>
 <body>
 <div class="shell">
-  <header><h1>Notes</h1><span class="badge">Go</span></header>
-  <div class="stats" id="stats"></div>
-  <div class="form">
-    <input id="title" placeholder="Title">
-    <select id="category"><option value="work">work</option><option value="personal">personal</option><option value="general">general</option></select>
-    <button class="btn-add" onclick="addNote()">Add</button>
-  </div>
-  <div class="form row2"><textarea id="content" placeholder="Content (optional)" rows="2"></textarea></div>
-  <div id="notes"></div>
+    <header><h1>Notes</h1><span class="badge">Go</span></header>
+    <div class="stats" id="stats"></div>
+    <div class="form">
+        <input id="title" placeholder="Title">
+        <select id="category">
+            <option value="work">work</option>
+            <option value="personal">personal</option>
+            <option value="general">general</option>
+        </select>
+        <button class="btn-add" onclick="addNote()">Add</button>
+    </div>
+    <div class="form row2"><textarea id="content" placeholder="Content (optional)" rows="2"></textarea></div>
+    <div id="notes"></div>
 </div>
 <script>
-const API='/api';
-async function load(){
-  const[notes,stats]=await Promise.all([fetch(API+'/notes').then(r=>r.json()),fetch(API+'/stats').then(r=>r.json())]);
-  document.getElementById('stats').innerHTML='<div>Total: <span>'+stats.total+'</span></div>'+Object.entries(stats.byCategory||{}).map(([k,v])=>'<div>'+k+': <span>'+v+'</span></div>').join('')+'<div>Uptime: <span>'+stats.uptime+'</span></div>';
-  const el=document.getElementById('notes');
-  if(!notes.length){el.innerHTML='<div id="empty">No notes yet.</div>';return;}
-  el.innerHTML=notes.map(n=>'<div class="note"><div class="note-body"><h3>'+esc(n.title)+'</h3><p>'+esc(n.content||'')+'</p></div><div class="note-meta"><span class="cat">'+esc(n.category)+'</span><button class="btn-del" onclick="del('+n.id+')">✕</button></div></div>').join('');
-}
-async function addNote(){const t=document.getElementById('title'),c=document.getElementById('content'),cat=document.getElementById('category');if(!t.value.trim())return;await fetch(API+'/notes',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({title:t.value,content:c.value,category:cat.value})});t.value='';c.value='';load();}
-async function del(id){await fetch(API+'/notes/'+id,{method:'DELETE'});load();}
-function esc(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML;}
-load();
+    const API = '/api';
+
+    async function load() {
+        const [notes, stats] = await Promise.all([fetch(API + '/notes').then(r => r.json()), fetch(API + '/stats').then(r => r.json())]);
+        document.getElementById('stats').innerHTML = '<div>Total: <span>' + stats.total + '</span></div>' + Object.entries(stats.byCategory || {}).map(([k, v]) => '<div>' + k + ': <span>' + v + '</span></div>').join('') + '<div>Uptime: <span>' + stats.uptime + '</span></div>';
+        const el = document.getElementById('notes');
+        if (!notes.length) {
+            el.innerHTML = '<div id="empty">No notes yet.</div>';
+            return;
+        }
+        el.innerHTML = notes.map(n => '<div class="note"><div class="note-body"><h3>' + esc(n.title) + '</h3><p>' + esc(n.content || '') + '</p></div><div class="note-meta"><span class="cat">' + esc(n.category) + '</span><button class="btn-del" onclick="del(' + n.id + ')">✕</button></div></div>').join('');
+    }
+
+    async function addNote() {
+        const t = document.getElementById('title'), c = document.getElementById('content'),
+            cat = document.getElementById('category');
+        if (!t.value.trim()) return;
+        await fetch(API + '/notes', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({title: t.value, content: c.value, category: cat.value})
+        });
+        t.value = '';
+        c.value = '';
+        load();
+    }
+
+    async function del(id) {
+        await fetch(API + '/notes/' + id, {method: 'DELETE'});
+        load();
+    }
+
+    function esc(s) {
+        const d = document.createElement('div');
+        d.textContent = s;
+        return d.innerHTML;
+    }
+
+    load();
 </script>
 </body>
 </html>

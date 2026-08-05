@@ -13,7 +13,9 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b253d08e-f7a8-43cd-90e1-38452f3057ba" name="Changes" comment="" />
+    <list default="true" id="b253d08e-f7a8-43cd-90e1-38452f3057ba" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../go-notes/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../go-notes/static/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,6 +23,13 @@
   </component>
   <component name="DpaMonitoringSettings">
     <option name="firstShow" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
@@ -30,17 +39,17 @@
       <entry key="S5" value="1.0" />
       <entry key="S10" value="1.0" />
       <entry key="S30" value="1.0" />
-      <entry key="S60" value="1.000000002905125" />
-      <entry key="M2" value="1.0000762249201955" />
-      <entry key="M5" value="1.0341551884309903" />
-      <entry key="M10" value="1.2613625287919383" />
-      <entry key="M15" value="1.5150375305660462" />
-      <entry key="M30" value="2.0149261313392888" />
-      <entry key="H1" value="2.4247288367323785" />
-      <entry key="H2" value="2.688033670250366" />
-      <entry key="H4" value="2.8374077772875914" />
-      <entry key="D1" value="2.9719349669030546" />
-      <entry key="W1" value="2.9959663863672787" />
+      <entry key="S60" value="1.0" />
+      <entry key="M2" value="1.0000000000000009" />
+      <entry key="M5" value="1.0000009758184052" />
+      <entry key="M10" value="1.0012252693513892" />
+      <entry key="M15" value="1.0148599661912379" />
+      <entry key="M30" value="1.1995521191829142" />
+      <entry key="H1" value="1.7630654410376674" />
+      <entry key="H2" value="2.5079398144515728" />
+      <entry key="H4" value="3.1251833595444936" />
+      <entry key="D1" value="3.8321640803269155" />
+      <entry key="W1" value="3.9754197243609504" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -62,23 +71,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.005299235654092465" />
-      <entry key="MS500" value="0.35062481266060025" />
-      <entry key="S2" value="0.7695036100804312" />
-      <entry key="S5" value="0.9005011352299646" />
-      <entry key="S10" value="0.9489473827509957" />
-      <entry key="S30" value="0.9826843601234214" />
-      <entry key="S60" value="0.9913043759899611" />
-      <entry key="M2" value="0.9957187442126437" />
-      <entry key="M5" value="1.0323787431632698" />
-      <entry key="M10" value="1.2603699990770914" />
-      <entry key="M15" value="1.5142983969380193" />
-      <entry key="M30" value="2.0144802928188934" />
-      <entry key="H1" value="2.4244746595801" />
-      <entry key="H2" value="2.6878965403566943" />
-      <entry key="H4" value="2.8373363641537708" />
-      <entry key="D1" value="2.9719226372029035" />
-      <entry key="W1" value="2.9959646140717475" />
+      <entry key="MS100" value="0.0915053559966016" />
+      <entry key="MS500" value="0.6198538499694932" />
+      <entry key="S2" value="0.8873037679223521" />
+      <entry key="S5" value="0.9532985452881589" />
+      <entry key="S10" value="0.9763700862317316" />
+      <entry key="S30" value="0.9920604931322485" />
+      <entry key="S60" value="0.9960223356593207" />
+      <entry key="M2" value="0.9980091861597881" />
+      <entry key="M5" value="0.9992041724996829" />
+      <entry key="M10" value="1.0008258250078685" />
+      <entry key="M15" value="1.0145870454129797" />
+      <entry key="M30" value="1.1993751203149305" />
+      <entry key="H1" value="1.762919026745814" />
+      <entry key="H2" value="2.5078296742318824" />
+      <entry key="H4" value="3.125113265476498" />
+      <entry key="D1" value="3.83214956272445" />
+      <entry key="W1" value="3.975417568823635" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -90,25 +99,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Project.DotnetNotes.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Project.DotnetNotes.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "cidr.known.project.marker": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "configurable.group.tools",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="DotnetNotes" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -139,7 +150,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1785955106255</updated>
-      <workItem from="1785955108325" duration="3444000" />
+      <workItem from="1785955108325" duration="4225000" />
     </task>
     <servers />
   </component>
